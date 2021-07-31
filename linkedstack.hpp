@@ -20,11 +20,13 @@ class LinkedStack {
 
 private:
     Node<T>* front;
+    T undefined;
     int size_n;
 
 public:
-    LinkedStack() : size_n(0), front(nullptr) {};
-    
+    LinkedStack() : front(nullptr), undefined(T()), size_n(0) {};
+    LinkedStack(T undefined) : front(nullptr), undefined(undefined), size_n(0) {};
+
     ~LinkedStack() {
         Node<T>* toDelete = front;
         Node<T>* next = nullptr;
@@ -45,6 +47,7 @@ public:
     T peek() {
         if (size_n > 0)
             return front->value;
+        return undefined;
     }
 
     T pop() {
@@ -64,6 +67,7 @@ public:
             size_n--;
             return value;
         }
+        return undefined;
     }
 
     int size() {
