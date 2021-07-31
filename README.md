@@ -1,4 +1,5 @@
 # Stack implementation using a Doubly Linked List
+LinkedStack is a simple implementation of a Stack DS using a Doubly Linked List.
 
 ## Installation
 1. Clone the repo:
