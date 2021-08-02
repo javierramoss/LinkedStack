@@ -3,53 +3,68 @@
 
 int main()
 {
-    //LinkedStack example using integers
-    std::cout << "Instantiating integers LinkedStack" << std::endl;
-    LinkedStack<int> integerStack(0);
+    //LinkedStack of integers using pointers
+    std::cout << "Instantiating integers LinkedStack\n";
+    LinkedStack<int>* integerStack = new LinkedStack<int>(-1);
 
-    std::cout << "Push numbers from 1 to 5.." << std::endl;
-    for (int x = 1; x < 6; x++) {
-        integerStack.push(x);
-    }
-    
-    std::cout << "Print the stack.." << std::endl;
-    std::cout << integerStack << std::endl;
-    
-    std::cout << "Size: " << integerStack.size() << std::endl;
+    std::cout << "Push numbers from 1 to 5..\n";
+    for (int x = 1; x < 6; x++)
+        integerStack->push(x);
 
-    std::cout << "Element at the front: " << integerStack.top() << std::endl;
+    std::cout << "Make a new LinkedStack using the copy constructor to display later on..\n\n";
+    LinkedStack<int>* copyIntegerStack = new LinkedStack<int>(*integerStack);
     
-    std::cout << "Pop the 3 elements at the top of the stack.." << std::endl;
+    std::cout << "Print the stack..\n";
+    std::cout << *integerStack << "\n";
+    
+    std::cout << "Size: " << integerStack->size() << "\n\n";
+
+    std::cout << "Element at the front: " << integerStack->top() << "\n\n";
+    
+    std::cout << "Pop the 3 elements at the top of the stack..\n";
     for (int x = 0; x < 3; x++)
-        std::cout << integerStack.pop() << " was poped" << std::endl;
+        std::cout << integerStack->pop() << " was poped\n";
     
-    std::cout << "Now the new front of the stack: " << integerStack.top() << std::endl;
+    std::cout << "\nNow the new front of the stack: " << integerStack->top() << "\n\n";
 
-    std::cout << "Print the stack again.." << std::endl;
-    std::cout << integerStack << std::endl;
+    std::cout << "Print the stack again..\n";
+    std::cout << *integerStack << std::endl;
+
+    std::cout << "The deep copied LinkedStack using the copy constructor remained unmodified:" << std::endl;
+    std::cout << *copyIntegerStack << std::endl;
+
+    std::cout << "Using the copy assignment operator the changes can be seen:" << std::endl;
+    *copyIntegerStack = *integerStack;
+    std::cout << *copyIntegerStack << "\n";
     
-    //LinkedStack example using Contact objects
-    std::cout << "\nInstantiating contacts LinkedStack" << std::endl;
-    LinkedStack<Contact> contactStack(Contact("none","none","none","none",-1));
+    //LinkedStack of Contact objects using pointers
+    std::cout << "Instantiating contacts LinkedStack" << std::endl;
+    LinkedStack<Contact>* contactStack = new LinkedStack<Contact>(Contact("none","none","none","none",-1));
 
-    std::cout << "Push 3 contacts to contactStack" << std::endl;
-    contactStack.push(Contact("1", "Charles", "Disick", "4530 New Grove Avenue", 34));
-    contactStack.push(Contact("2", "Kylie", "Michaels", "2310 Buena Vista Apartments", 26));
-    contactStack.push(Contact("3", "Jackson", "Smith", "1265 New Dawn Apartments", 45));
+    std::cout << "Push 3 contacts to contactStack\n\n";
+    contactStack->push(Contact("1", "Charles", "Disick", "4530 New Grove Avenue", 34));
+    contactStack->push(Contact("2", "Kylie", "Michaels", "2310 Buena Vista Apartments", 26));
+    contactStack->push(Contact("3", "Jackson", "Smith", "1265 New Dawn Apartments", 45));
 
-    std::cout << "Print the stack.." << std::endl;
-    std::cout << contactStack << std::endl;
+    std::cout << "Print the stack..\n";
+    std::cout << *contactStack;
 
-    std::cout << "Size: " << contactStack.size() << std::endl;
+    std::cout << "Size: " << contactStack->size() << "\n\n";
 
-    std::cout << "Element at the front: " << contactStack.top() << std::endl;
+    std::cout << "Element at the top..\n" << contactStack->top();
 
-    std::cout << "Pop the 3 elements at the top of the stack.." << std::endl;
+    std::cout << "\nPop the 3 elements at the top of the stack..";
     for (int x = 0; x < 3; x++)
-        std::cout << contactStack.pop() << "was poped\n" << std::endl;
+        std::cout << "\npoping..\n" << contactStack->pop();
 
-    if (contactStack.empty()) 
-        std::cout << "contactStack is now empty" << std::endl;
+    if (contactStack->empty()) 
+        std::cout << "\ncontactStack is now empty\n";
+
+    //deleting
+    std::cout << "Freeing memory..\n";
+    delete integerStack;
+    delete copyIntegerStack;
+    delete contactStack; 
 
     return 0;
 }

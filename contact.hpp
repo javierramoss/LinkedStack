@@ -6,11 +6,11 @@
 
 class Contact {
     friend std::ostream& operator<<(std::ostream& out, const Contact& contact) {
-        out << "Contact ID: " << contact.id << std::endl;
-        out << "First name: " << contact.firstName << std::endl;
-        out << "Last name: " << contact.lastName << std::endl;
-        out << "Address: " << contact.address << std::endl;
-        out << "Age: " << contact.age << std::endl;
+        out << "Contact ID: " << contact.id << "\n";
+        out << "First name: " << contact.firstName << "\n";
+        out << "Last name: " << contact.lastName << "\n";
+        out << "Address: " << contact.address << "\n";
+        out << "Age: " << contact.age << "\n";
         return out;
     }
 
