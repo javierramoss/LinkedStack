@@ -22,9 +22,9 @@ The `main.cpp` example file shows the LinkedStack DS basic functionality, it fir
 ### Member Functions
 `empty()` returns `1` when the stack is empty, otherwise `0`.
 
-`peek()` returns the element at the front of the stack.
+`peek()` returns the element at the top of the stack.
 
-`pop()` returns the element at the front of the stack and pops it.
+`top()` returns the element at the top of the stack and pops it.
 
 `size()` returns the current size of the stack.
 
