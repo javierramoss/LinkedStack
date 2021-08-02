@@ -13,65 +13,65 @@ struct Node {
 template<typename T>
 class LinkedStack {
     friend std::ostream& operator<<(std::ostream& out, const LinkedStack<T>& linkedstack) {
-        for (Node<T>* temp = linkedstack.front; temp != nullptr; temp = temp->prev)
+        for (Node<T>* temp = linkedstack._top; temp != nullptr; temp = temp->prev)
             out << temp->value << " ";
         return out;
     }
 
 private:
-    Node<T>* front;
+    Node<T>* _top;
     T undefined;
-    int size_n;
+    int _size;
 
 public:
-    LinkedStack() : front(nullptr), undefined(T()), size_n(0) {};
-    LinkedStack(T undefined) : front(nullptr), undefined(undefined), size_n(0) {};
+    LinkedStack() : _top(nullptr), undefined(T()), _size(0) {};
+    LinkedStack(T undefined) : _top(nullptr), undefined(undefined), _size(0) {};
 
     ~LinkedStack() {
-        Node<T>* toDelete = front;
+        Node<T>* toDelete = _top;
         Node<T>* next = nullptr;
-        while (size_n > 0) {
+        while (_size > 0) {
             next = toDelete->prev;
             delete toDelete;
             toDelete = next;
-            size_n--;
+            _size--;
         }
     }
 
     int empty() {
-        if (size_n == 0)
+        if (_size == 0)
             return 1;
         return 0;
     }
 
-    T peek() {
-        if (size_n > 0)
-            return front->value;
+    T top() {
+        if (_size > 0)
+            return _top->value;
         return undefined;
     }
 
     T pop() {
-        if (size_n == 1) {
-            T value = front->value;
-            delete front;
-            front = nullptr;
-            size_n--;
+        if (_size == 1) {
+            T value = _top->value;
+            delete _top;
+            _top = nullptr;
+            _size--;
             return value;
         }
-        else if (size_n > 1) {
-            T value = front->value;
-            Node<T>* newFront = front->prev;
+        else if (_size > 1) {
+            T value = _top->value;
+            Node<T>* newFront = _top->prev;
             newFront->next = nullptr;
-            delete front;
-            front = newFront;
-            size_n--;
+            delete _top;
+            _top = newFront;
+            _size--;
             return value;
         }
         return undefined;
     }
 
     int size() {
-        return size_n;
+        return _size;
     }
 
     void push(T x) {
@@ -80,15 +80,15 @@ public:
         newNode->prev = nullptr;
         newNode->next = nullptr;
                 
-        if (front == nullptr) {
-            front = newNode;
+        if (_top == nullptr) {
+            _top = newNode;
         }
         else {
-            newNode->prev = front;
-            front->next = newNode;
-            front = newNode;
+            newNode->prev = _top;
+            _top->next = newNode;
+            _top = newNode;
         }
-        size_n++;
+        _size++;
     }
 };
 

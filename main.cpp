@@ -17,13 +17,13 @@ int main()
     
     std::cout << "Size: " << integerStack.size() << std::endl;
 
-    std::cout << "Element at the front: " << integerStack.peek() << std::endl;
+    std::cout << "Element at the front: " << integerStack.top() << std::endl;
     
     std::cout << "Pop the 3 elements at the top of the stack.." << std::endl;
     for (int x = 0; x < 3; x++)
         std::cout << integerStack.pop() << " was poped" << std::endl;
     
-    std::cout << "Now the new front of the stack: " << integerStack.peek() << std::endl;
+    std::cout << "Now the new front of the stack: " << integerStack.top() << std::endl;
 
     std::cout << "Print the stack again.." << std::endl;
     std::cout << integerStack << std::endl;
@@ -42,7 +42,7 @@ int main()
 
     std::cout << "Size: " << contactStack.size() << std::endl;
 
-    std::cout << "Element at the front: " << contactStack.peek() << std::endl;
+    std::cout << "Element at the front: " << contactStack.top() << std::endl;
 
     std::cout << "Pop the 3 elements at the top of the stack.." << std::endl;
     for (int x = 0; x < 3; x++)
