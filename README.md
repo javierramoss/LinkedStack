@@ -11,20 +11,20 @@ https://github.com/BigBeakPenguin/LinkedStack.git
 g++ main.cpp linkedstack.hpp contact.hpp
 ```
 ## Usage
-LinkedStack can be implemented to a proyect of your own by simply including `linkedstack.hpp` in your project directory and compiling accordingly. It supports both primitive and abstract data types (such as structs and classes).
+LinkedStack can be implemented to a proyect of your own by including `linkedstack.hpp` in your project directory and compiling accordingly. It supports both primitive and abstract data types (such as structs and classes).
 
-To use the LinkedStack DS simply pass any type as argument:
+To use the LinkedStack DS simply specify the `type` and a undefined variable of the same `type` to pass to the constructor:
 ```cpp
-LinkedStack<type> myLinkedStack;
+LinkedStack<type> myLinkedStack(type());
 ```
 The `main.cpp` example file shows the LinkedStack DS basic functionality, it first creates a LinkedStack for integers, and a LinkedStack for the Contact class defined in `contact.hpp` which represents a person's contact information.
 
 ### Member Functions
 `empty()` returns `1` when the stack is empty, otherwise `0`.
 
-`peek()` returns the element at the top of the stack.
+`top()` returns the element at the top of the stack.
 
-`top()` returns the element at the top of the stack and pops it.
+`pop()` returns the element at the top of the stack and pops it.
 
 `size()` returns the current size of the stack.
 
