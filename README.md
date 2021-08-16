@@ -5,7 +5,7 @@ LinkedStack is a simple implementation of a Stack DS using a Doubly Linked List.
 Steps for running the examples in `main.cpp`
 1. Clone the repo:
 ```
-https://github.com/BigBeakPenguin/LinkedStack.git
+git clone https://github.com/BigBeakPenguin/LinkedStack.git
 ```
 2. Compile using the command from within the project folder:
 ```
